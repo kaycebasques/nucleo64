@@ -4,13 +4,13 @@ Q		:= @
 NULL		:= 2>/dev/null
 endif
 
-SRC_DIR        = src
-INC_DIR        = inc
-OPENCM3_DIR    = ../libopencm3
-SHARED_SRC_DIR = ../shared/src
-SHARED_INC_DIR = ../shared/inc
+SRC_DIR        = .
+# INC_DIR        = inc
+OPENCM3_DIR    = ../deps/libopencm3
+# SHARED_SRC_DIR = ../shared/src
+# SHARED_INC_DIR = ../shared/inc
 
-BINARY = firmware
+BINARY = blinky
 
 ###############################################################################
 # Basic Device Setup
@@ -23,7 +23,7 @@ ARCH_FLAGS	= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
 ###############################################################################
 # Linkerscript
 
-LDSCRIPT = linkerscript.ld
+LDSCRIPT = stm32f401re.ld
 LDLIBS		+= -l$(LIBNAME)
 LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 
@@ -31,8 +31,8 @@ LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 # Includes
 
 DEFS		+= -I$(OPENCM3_DIR)/include
-DEFS		+= -I$(INC_DIR)
-DEFS		+= -I$(SHARED_INC_DIR)
+# DEFS		+= -I$(INC_DIR)
+# DEFS		+= -I$(SHARED_INC_DIR)
 
 ###############################################################################
 # Executables
@@ -47,7 +47,7 @@ AS		:= $(PREFIX)as
 OBJCOPY		:= $(PREFIX)objcopy
 OBJDUMP		:= $(PREFIX)objdump
 GDB		:= $(PREFIX)gdb
-STFLASH		= $(shell which st-flash)
+# STFLASH		= $(shell which st-flash)
 OPT		:= -Os
 DEBUG		:= -ggdb3
 CSTD		?= -std=c99
@@ -57,12 +57,12 @@ CSTD		?= -std=c99
 # Source files
 
 OBJS		+= $(SRC_DIR)/$(BINARY).o
-OBJS		+= $(SRC_DIR)/bootloader.o
-OBJS		+= $(SRC_DIR)/timer.o
-OBJS		+= $(SRC_DIR)/info.o
-OBJS		+= $(SHARED_SRC_DIR)/core/system.o
-OBJS		+= $(SHARED_SRC_DIR)/core/uart.o
-OBJS		+= $(SHARED_SRC_DIR)/core/ring-buffer.o
+# OBJS		+= $(SRC_DIR)/bootloader.o
+# OBJS		+= $(SRC_DIR)/timer.o
+# OBJS		+= $(SRC_DIR)/info.o
+# OBJS		+= $(SHARED_SRC_DIR)/core/system.o
+# OBJS		+= $(SHARED_SRC_DIR)/core/uart.o
+# OBJS		+= $(SHARED_SRC_DIR)/core/ring-buffer.o
 
 ###############################################################################
 # C flags
