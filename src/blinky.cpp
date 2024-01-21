@@ -1,4 +1,7 @@
+#include <stdint.h>
+#include <stdbool.h>
 #include <cstddef>
+#include <stdio.h>
 
 #include "libopencm3/stm32/f4/rcc.h"
 #include "libopencm3/stm32/f4/gpio.h"
@@ -11,20 +14,28 @@ static void rcc_setup(void) {
 }
 
 static void gpio_setup(void) {
+  rcc_periph_clock_enable(RCC_GPIOA);
   gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN);
 }
 
 static void delay_cycles(uint32_t cycles) {
-  for (uint32_t i = 0; i < cycles; i++) {
+  for (volatile uint32_t i = 0; i < cycles; i++) {
     __asm__("nop");
   }
 }
 
-int main() {
+int main(void) {
   rcc_setup();
   gpio_setup();
+  bool on = true;
   while (true) {
-    gpio_toggle(LED_PORT, LED_PIN);
+    if (on) {
+      gpio_set(LED_PORT, LED_PIN);
+      on = false;
+    } else {
+      gpio_clear(LED_PORT, LED_PIN);
+      on = true;
+    }
     delay_cycles(84000000);
   }
   return 0;
