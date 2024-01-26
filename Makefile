@@ -4,9 +4,9 @@ Q		:= @
 NULL		:= 2>/dev/null
 endif
 
-SRC_DIR        = apps
+SRC_DIR        = src/apps
 # INC_DIR        = inc
-OPENCM3_DIR    = ../deps/libopencm3
+OPENCM3_DIR    = deps/libopencm3
 # SHARED_SRC_DIR = ../shared/src
 # SHARED_INC_DIR = ../shared/inc
 
@@ -24,7 +24,7 @@ ARCH_FLAGS	= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
 ###############################################################################
 # Linkerscript
 
-LDSCRIPT = stm32f401re.ld
+LDSCRIPT = src/stm32f401re.ld
 LDLIBS		+= -l$(LIBNAME)
 LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 
