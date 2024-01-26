@@ -23,17 +23,19 @@ LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 TGT_LDFLAGS		+= --static -nostartfiles -T$(LDSCRIPT) $(ARCH_FLAGS) $(DEBUG)
 TGT_LDFLAGS		+= -Wl,-Map=$(*).map -Wl,--cref -Wl,--gc-sections
 
+# APP = blinky
+APP = blinky_systick
 
-all: blinky.elf
+all: $(APP).elf
 
-blinky.elf: blinky.o
-	$(LD) $(TGT_LDFLAGS) $(LDFLAGS) src/apps/blinky.o $(LDLIBS) -o blinky.elf
+$(APP).elf: $(APP).o
+	$(LD) $(TGT_LDFLAGS) $(LDFLAGS) src/apps/$(APP).o $(LDLIBS) -o $(APP).elf
 
-blinky.o:
-	$(CXX) $(TGT_CXXFLAGS) $(TGT_CPPFLAGS) -o src/apps/blinky.o -c src/apps/blinky.cpp
+$(APP).o:
+	$(CXX) $(TGT_CXXFLAGS) $(TGT_CPPFLAGS) -o src/apps/$(APP).o -c src/apps/$(APP).cpp
 
 clean:
-	rm src/apps/blinky.o
-	rm src/apps/blinky.d
-	rm blinky.elf
+	rm src/apps/$(APP).o
+	rm src/apps/$(APP).d
+	rm $(APP).elf
 	rm .map

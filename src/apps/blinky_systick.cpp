@@ -12,7 +12,7 @@
 #define SYSTICK_FREQUENCY (1000)
 #define LED_PORT (GPIOA)
 #define LED_PIN (GPIO5)
-#define WAIT_MS (5000)
+#define WAIT_MS (100)
 
 volatile uint64_t ticks = 0;
 
