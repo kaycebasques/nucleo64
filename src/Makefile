@@ -10,7 +10,8 @@ OPENCM3_DIR    = ../deps/libopencm3
 # SHARED_SRC_DIR = ../shared/src
 # SHARED_INC_DIR = ../shared/inc
 
-BINARY = blinky
+# BINARY = blinky
+BINARY = blinky_systick
 
 ###############################################################################
 # Basic Device Setup
