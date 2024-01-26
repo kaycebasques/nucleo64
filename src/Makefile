@@ -24,7 +24,7 @@ ARCH_FLAGS	= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
 ###############################################################################
 # Linkerscript
 
-LDSCRIPT = core/stm32f401re.ld
+LDSCRIPT = stm32f401re.ld
 LDLIBS		+= -l$(LIBNAME)
 LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 
