@@ -45,7 +45,8 @@ LINKER_FLAGS += --static -nostartfiles -T$(LINKER_SCRIPT) $(ARCH_FLAGS) $(DEBUG_
 LINKER_FLAGS += -Wl,-Map=$(APP).map -Wl,--cref -Wl,--gc-sections
 
 # APP = blinky
-APP = blinky_systick
+# APP = blinky_systick
+APP = pulsey
 
 all: $(APP).elf
 
