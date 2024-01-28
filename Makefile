@@ -53,6 +53,7 @@ $(APP).elf: $(APP).o
 	$(LINKER) $(LINKER_FLAGS) src/apps/$(APP).o $(LINKER_LIBS) -o $(APP).elf
 
 $(APP).o:
+	$(MAKE) -C libs/libopencm3
 	$(COMPILER) $(COMPILER_FLAGS) $(PREPROCESSOR_FLAGS) -o src/apps/$(APP).o -c src/apps/$(APP).cpp
 
 flash:
