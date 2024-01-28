@@ -1,0 +1,15 @@
+name: build
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          cd ${{github.workspace}}
+          git clone --recursive https://github.com/kaycebasques/nucleo64
+          cd nucleo64
+          ls
