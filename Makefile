@@ -6,7 +6,7 @@
 # https://github.com/lowbyteproductions/bare-metal-series/blob/main/app/Makefile
 
 OPENCM3_LIBNAME = opencm3_stm32f4
-OPENCM3_DIR = deps/libopencm3
+OPENCM3_DIR = libs/libopencm3
 OPENCM3_DEVICE_NAME = STM32F4
 
 ARCH_FLAGS = -mthumb  # Use the Arm Thumb instruction set

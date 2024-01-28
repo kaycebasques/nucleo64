@@ -1,3 +1,6 @@
-[submodule "deps/libopencm3"]
-	path = deps/libopencm3
+[submodule "libs/libopencm3"]
+	path = libs/libopencm3
 	url = https://github.com/libopencm3/libopencm3
+[submodule "libs/pigweed"]
+	path = libs/pigweed
+	url = https://pigweed.googlesource.com/pigweed/pigweed
