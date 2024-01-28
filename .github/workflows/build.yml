@@ -12,4 +12,4 @@ jobs:
           cd ${{github.workspace}}
           git clone --recursive https://github.com/kaycebasques/nucleo64
           cd nucleo64
-          ls
+          make
