@@ -57,7 +57,7 @@ $(APP).o:
 	$(COMPILER) $(COMPILER_FLAGS) $(PREPROCESSOR_FLAGS) -o src/apps/$(APP).o -c src/apps/$(APP).cpp
 
 flash:
-	$(shell pwd)/flash.sh $(APP)
+	openocd -f src/stm32f4xx.cfg -c "program $(APP).elf reset exit"
 
 clean:
 	rm src/apps/$(APP).o
