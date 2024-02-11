@@ -14,7 +14,7 @@
 #define SYSTICK_FREQUENCY (1000)
 #define LED_PORT (GPIOA)
 #define LED_PIN (GPIO5)
-#define WAIT_MS (20)
+#define WAIT_MS (1)
 #define PRESCALER (84)
 #define AUTO_RELOAD_REGISTER (1000)
 // frequency = CPU_FREQUENCY / ((PRESCALER - 1) * (AUTO_RELOAD_REGISTER - 1))
