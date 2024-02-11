@@ -46,7 +46,8 @@ LINKER_FLAGS += -Wl,-Map=$(APP).map -Wl,--cref -Wl,--gc-sections
 
 # APP = blinky
 # APP = blinky_systick
-APP = pulsey
+# APP = pulsey
+APP = uart
 
 all: $(APP).elf
 
